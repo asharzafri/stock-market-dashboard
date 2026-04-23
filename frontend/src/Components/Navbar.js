@@ -1,6 +1,8 @@
+import './Navbar.css';
+
 function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <h1>📈 Stock Market Dashboard</h1>
     </nav>
   );

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './StockCard.css';
 
 function StockCard(props) {
   const [price, setPrice] = useState(0);
@@ -11,9 +12,9 @@ function StockCard(props) {
   }, [props.symbol]);
 
   return (
-    <div>
+    <div className="stock-card">
       <h2>{props.name}</h2>
-      <p>Price: ${price}</p>
+      <p className="price">${price}</p>
     </div>
   );
 }
