@@ -1,19 +1,42 @@
 .stock-card {
-  background-color: #1e2130;
-  border-radius: 10px;
-  padding: 20px;
-  min-width: 200px;
+  background: linear-gradient(145deg, #1e2130, #151929);
+  border-radius: 16px;
+  padding: 24px;
   border: 1px solid #2e3250;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stock-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 200, 150, 0.15);
+  border-color: #00c896;
 }
 
 .stock-card h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #ffffff;
+  font-size: 16px;
+  color: #8892b0;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .stock-card .price {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #00c896;
+}
+
+.change {
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.positive {
+  color: #00c896;
+}
+
+.negative {
+  color: #ff4d4d;
 }

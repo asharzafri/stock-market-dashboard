@@ -2,21 +2,81 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+}
+
+@keyframes pulse1 {
+  0%, 100% { opacity: 0.07; }
+  50% { opacity: 0.15; }
+}
+
+@keyframes pulse2 {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.12; }
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
 }
 
 body {
-  background-color: #0f1117;
-  color: white;
+  background-color: #0a0a0f;
+  overflow-x: hidden;
 }
 
 .dashboard {
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(0, 200, 150, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 100, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 80%, rgba(120, 0, 255, 0.08) 0%, transparent 60%),
+    linear-gradient(135deg, #0a0a0f 0%, #0d1117 50%, #0a0f1e 100%);
   padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard::before {
+  content: '';
+  position: fixed;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-image: 
+    linear-gradient(rgba(0, 200, 150, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 150, 0.07) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+  animation: gridMove 8s linear infinite;
+}
+
+.dashboard::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 200, 150, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 100, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 80%, rgba(120, 0, 255, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulse1 6s ease-in-out infinite;
+}
+
+.dashboard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .stocks-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }

@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div className="dashboard">
-      <Navbar />
-      <button onClick={handleLogout}>Logout</button>
+      <Navbar onLogout={handleLogout}/>
+
       <div className="stocks-container">
         <StockCard name="Apple" symbol="AAPL" />
         <StockCard name="Google" symbol="GOOGL" />

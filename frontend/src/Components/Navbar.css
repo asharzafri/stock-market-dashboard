@@ -1,13 +1,32 @@
 .navbar {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
-  background-color: #1e2130;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 16px 24px;
+  background: linear-gradient(145deg, #1e2130, #151929);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 1px solid #2e3250;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .navbar h1 {
-  font-size: 24px;
+  font-size: 22px;
   color: white;
+  letter-spacing: 1px;
+}
+.logout-btn {
+  margin-left: auto;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid #2e3250;
+  background: transparent;
+  color: #8892b0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  border-color: #00c896;
+  color: #00c896;
 }
