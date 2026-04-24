@@ -1,21 +1,31 @@
-import { useState, useEffect } from 'react';
 import './App.css';
+import { useState } from 'react';
 import Navbar from './Components/Navbar';
 import StockCard from './Components/StockCard';
+import Login from './Components/Login';
 
 function App() {
-  const [apiStatus, setApiStatus] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    !!localStorage.getItem('token')
+  );
 
-  useEffect(() => {
-    fetch('http://localhost:8080/api/stocks/hello')
-      .then(response => response.text())
-      .then(data => setApiStatus(data));
-  }, []);
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+  };
+
+  if (!isLoggedIn) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
     <div className="dashboard">
       <Navbar />
-      <p>{apiStatus}</p>
+      <button onClick={handleLogout}>Logout</button>
       <div className="stocks-container">
         <StockCard name="Apple" symbol="AAPL" />
         <StockCard name="Google" symbol="GOOGL" />
